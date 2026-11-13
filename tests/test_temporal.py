@@ -45,3 +45,27 @@ def test_version_2_feature_not_retroactive(documents):
     second = Question("receipt", "cart-sdk", "2.0", "2025-07-01")
     assert "cart-v2-refunds" not in {d.id for d in filter_documents(documents, first)}
     assert "cart-v2-refunds" in {d.id for d in filter_documents(documents, second)}
+
+
+def test_open_ended_document_remains_valid_after_start():
+    evergreen = Document(
+        "ongoing", "cart-sdk", "2.0", "2025-01-01", None,
+        "Current API", "This reference has no scheduled end date."
+    )
+    assert not valid_on(evergreen, "2024-12-31")
+    assert valid_on(evergreen, "2025-01-01")
+    assert valid_on(evergreen, "2027-01-01")
+
+
+def test_filter_does_not_mutate_source_order():
+    current = Document(
+        "current", "cart-sdk", "2.0", "2025-01-01", None,
+        "Current API", "Use the current API."
+    )
+    old = doc()
+    originals = [old, current]
+    filtered = filter_documents(
+        originals, Question("cart", "cart-sdk", "2.0", "2025-04-01")
+    )
+    assert filtered == [current]
+    assert originals == [old, current]
