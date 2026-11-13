@@ -31,3 +31,22 @@ Precision@K, Recall@K, mean reciprocal rank, and nDCG@K. The report includes per
 ## Reproduction
 
 Use the commands in the root README and report the exact package version and document manifest digest. A real study should use public licensed documentation, documented annotation policies, multiple independent annotators, source revision history, and query sampling that reflects actual developer needs.
+
+
+## Time-boundary regression checklist
+
+The temporal filter is intentionally conservative. When adding new SDK
+examples or changing eligibility code, verify these cases:
+
+1. A document is eligible on its `valid_from` date, but not on its
+   `valid_to` date because that endpoint is exclusive.
+2. A document with no `valid_to` remains eligible after its start date.
+3. A query requesting an unknown package or version returns no evidence
+   rather than silently falling back to another version.
+4. Filtering leaves the original corpus order and documents unchanged.
+5. A feature introduced partway through a version's lifetime must not
+   appear in answers about earlier dates.
+
+Run `python -m pytest tests/test_temporal.py -q` before changing retrieval
+eligibility. These checks cover *date and version consistency*, not whether
+the retrieved explanation is semantically correct.
