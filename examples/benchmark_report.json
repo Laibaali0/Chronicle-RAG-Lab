@@ -1,0 +1,49 @@
+{
+  "dataset": "hand-authored synthetic versioned SDK docs",
+  "baseline_metrics": {
+    "bm25": {
+      "precision": 0.5208333333333334,
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0
+    },
+    "hash": {
+      "precision": 0.5208333333333334,
+      "recall": 1.0,
+      "mrr": 0.9375,
+      "ndcg": 0.9555358657753854
+    },
+    "hybrid": {
+      "precision": 0.5208333333333334,
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 0.9978552784883424
+    }
+  },
+  "comparison": {
+    "first": {
+      "precision": 0.5208333333333334,
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 0.9978552784883424
+    },
+    "second": {
+      "precision": 0.5208333333333334,
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0
+    },
+    "first_method": "hybrid",
+    "second_method": "bm25",
+    "metric": "ndcg",
+    "paired_query_bootstrap": {
+      "mean_difference": -0.002144721511657538,
+      "ci_low": -0.006434164534972614,
+      "ci_high": 0.0,
+      "resamples": 1000,
+      "seed": 42,
+      "sampling_unit": "query"
+    },
+    "caveat": "Results describe hand-authored synthetic data only"
+  }
+}
