@@ -46,14 +46,12 @@ Requirements: Python 3.10 or later. A GPU, external model, and API key are **not
 ```bash
 
 git clone https://github.com/Laibaali0/Chronicle-RAG-Lab.git
-cd chronicle-rag-lab
+cd Chronicle-RAG-Lab
 python -m venv .venv
 source .venv/bin/activate # Windows: .venv\Scripts\activate
 python -m pip install -e '.[dev]'
 pytest -q
 ```
-
-> The clone URL above will work once this package is published under the proposed repository name.
 
 ## Load synthetic documentation
 
@@ -83,9 +81,11 @@ chronicle-rag --db demo.db compare examples/benchmark.json --first hybrid --seco
 export CHRONICLE_DB=demo.db
 export CHRONICLE_API_KEY=change-me-to-a-long-random-secret
 uvicorn chronicle_rag.api:app --host 127.0.0.1 --port 8000
+```
 
-Example request:
+In a separate terminal, send a request:
 
+```bash
 curl http://127.0.0.1:8000/v1/answer \
   -H 'Content-Type: application/json' \
   -H 'x-api-key: change-me-to-a-long-random-secret' \
