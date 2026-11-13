@@ -1,0 +1,10 @@
+[
+  {"question":{"text":"how to start a cart session","package":"cart-sdk","version":"2.0","as_of":"2025-07-01","k":3},"judgments":{"cart-v2-start":3,"cart-v2-remove":0}},
+  {"question":{"text":"read cart total amount currency","package":"cart-sdk","version":"2.0","as_of":"2025-07-01","k":3},"judgments":{"cart-v2-total":3,"cart-v2-start":0}},
+  {"question":{"text":"cancel a cart session idempotently","package":"cart-sdk","version":"2.0","as_of":"2025-07-01","k":3},"judgments":{"cart-v2-remove":3,"cart-v2-refunds":1}},
+  {"question":{"text":"atomic stock adjustment with delta","package":"inventory-sdk","version":"2.0","as_of":"2025-07-01","k":2},"judgments":{"inventory-v2-adjust":3,"inventory-v2-read":0}},
+  {"question":{"text":"current available and reserved stock snapshot","package":"inventory-sdk","version":"2.0","as_of":"2025-07-01","k":2},"judgments":{"inventory-v2-read":3}},
+  {"question":{"text":"create payment intent for a customer","package":"billing-sdk","version":"2.0","as_of":"2025-07-01","k":2},"judgments":{"billing-v2-intent":3,"billing-v2-status":0}},
+  {"question":{"text":"read payment intent status","package":"billing-sdk","version":"2.0","as_of":"2025-07-01","k":2},"judgments":{"billing-v2-status":3,"billing-v2-intent":1}},
+  {"question":{"text":"create a cart version 1.0","package":"cart-sdk","version":"1.0","as_of":"2024-06-01","k":3},"judgments":{"cart-v1-create":3}}
+]
